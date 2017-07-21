@@ -10,7 +10,7 @@ A set of example HTTP requests for the Spire APIs using Postman. These include:
 In order to utilize this repo you will need two things:
 
 1. A [Spire API access token](https://spire.com/contact/developer-portal/).
-2. [Postman](https://www.getpostman.com) for Mac or Chrome.
+2. [Postman](https://www.getpostman.com) for Mac, Windows, or Chrome.
 
 # Setup
 
