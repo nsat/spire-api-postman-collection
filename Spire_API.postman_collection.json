@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Spire API",
-		"_postman_id": "fd9ddc0c-a399-974f-91c2-6f3c05a866c2",
+		"_postman_id": "82c5049d-525d-34c5-c037-ce4968eb24c8",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -24,7 +24,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "Returns first page of all Vessels known to Spire."
 					},
 					"response": []
 				},
@@ -41,7 +41,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "Returns individual ship details."
 					},
 					"response": []
 				},
@@ -80,7 +80,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "Returns all Vessels with the ship type Cargo."
 					},
 					"response": []
 				},
@@ -125,7 +125,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "Returns all Vessels with the ship type Cargo and with the flag country of China."
 					},
 					"response": []
 				},
@@ -170,7 +170,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "Returns all vessels with the ship type Tanker and within a given polygon geometry of the North Sea."
 					},
 					"response": []
 				},
@@ -208,7 +208,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "Returns all vessels that have an exact match for at least one of the MMSIs provided."
 					},
 					"response": []
 				},
@@ -246,7 +246,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "Returns all vessels that have an exact match for at least one of the IMO numbers provided."
 					},
 					"response": []
 				}
@@ -288,7 +288,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": "First page of 20,000 results from the previous 3 hours is returned."
 					},
 					"response": []
@@ -331,7 +334,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": "First page of results from the last 3 hours that includes these MMSIs is returned."
 					},
 					"response": []
@@ -386,7 +392,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": "First page of type 1 messages from the last 3 hours for the geometry provided is returned."
 					},
 					"response": []
@@ -395,7 +404,7 @@
 					"name": "GET All Messages from 2017-06-15",
 					"request": {
 						"url": {
-							"raw": "https://ais.spire.com/messages?fields=decoded&received_after=2017-06-15T00:00:00&received_before=2017-06-15T23:59:59&limit=100",
+							"raw": "https://ais.spire.com/messages?fields=decoded&received_after=2017-07-24T00:00:00&received_before=2017-07-24T23:59:59&limit=100",
 							"protocol": "https",
 							"host": [
 								"ais",
@@ -414,13 +423,13 @@
 								},
 								{
 									"key": "received_after",
-									"value": "2017-06-15T00:00:00",
+									"value": "2017-07-24T00:00:00",
 									"equals": true,
 									"description": ""
 								},
 								{
 									"key": "received_before",
-									"value": "2017-06-15T23:59:59",
+									"value": "2017-07-24T23:59:59",
 									"equals": true,
 									"description": ""
 								},
