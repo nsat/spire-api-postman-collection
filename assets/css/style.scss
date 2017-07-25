@@ -4,3 +4,7 @@ $body-link-color: #558382 !default;
 $blockquote-text-color: #819198 !default;
 
 @import "{{ site.theme }}";
+
+.page-header {
+  background-image: url(https://devw4pftlz2lj.cloudfront.net/media/spire/2017/06/27/armada.jpg);
+}
