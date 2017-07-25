@@ -14,10 +14,9 @@ In order to utilize this repo you will need two things:
 
 # Setup
 
-1. Clone or download this repo to your local machine.
+1. Clone or [download](https://github.com/kjbrazil/spire-api-postman-collection/archive/master.zip) this repo to your local machine.
 2. Open Postman.
 3. In the top left corner click "Import".
-4. Click "Import Folder".
 5. Drag or find both the ``Spire_API.postman_collection.json`` & ``Spire.postman_environment.json`` files and click open.
 6. Both the collection and the environment variables will be imported to Postman.
 7. In the top right corner, click the gear icon and select "Manage Environments".
