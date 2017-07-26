@@ -401,7 +401,7 @@
 					"response": []
 				},
 				{
-					"name": "GET All Messages from 2017-06-15",
+					"name": "GET All Messages from 2017-07-24",
 					"request": {
 						"url": {
 							"raw": "https://ais.spire.com/messages?fields=decoded&received_after=2017-07-24T00:00:00&received_before=2017-07-24T23:59:59&limit=100",
@@ -451,7 +451,7 @@
 							}
 						],
 						"body": {},
-						"description": "First page of 20,000 messages from 2017-06-15."
+						"description": "First page of 20,000 messages from 2017-07-24."
 					},
 					"response": []
 				}
