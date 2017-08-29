@@ -46,7 +46,7 @@ In order to utilize this repo you will need two things:
 ![Select Environment](https://github.com/kjbrazil/spire-api-postman-collection/blob/master/images/select_environment.png?raw=true)
 
 12. You are now ready to start making API calls!
-13. Try querying all Spire vessels by clicking the 01_Vessels Beta folder > "List All Vessels" > Send.
+13. Try querying all Spire vessels by clicking the 01_Vessels folder > "List All Vessels" > Send.
 
 ![First Request](https://github.com/kjbrazil/spire-api-postman-collection/blob/master/images/first_request.png?raw=true)
 
