@@ -295,7 +295,7 @@
 			"description": "",
 			"item": [
 				{
-					"name": "Most Recent Deocoded Messages",
+					"name": "Most Recent Decoded Messages",
 					"request": {
 						"url": {
 							"raw": "https://ais.spire.com/messages?fields=decoded",
