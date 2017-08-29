@@ -2,7 +2,7 @@
 
 A set of example HTTP requests for the Spire APIs using Postman. These include:
 
-* Vessels (Beta)
+* Vessels
 * Messages
 
 # Requirements

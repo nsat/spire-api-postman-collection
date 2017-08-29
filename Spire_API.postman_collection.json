@@ -2,19 +2,19 @@
 	"variables": [],
 	"info": {
 		"name": "Spire API",
-		"_postman_id": "82c5049d-525d-34c5-c037-ce4968eb24c8",
+		"_postman_id": "b326ef2d-0f65-0927-d03d-e8f6d0725e96",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "01_Vessels Beta",
+			"name": "01_Vessels",
 			"description": "",
 			"item": [
 				{
 					"name": "List All Vessels",
 					"request": {
-						"url": "https://beta.ais.spire.com/vessels",
+						"url": "https://ais.spire.com/vessels",
 						"method": "GET",
 						"header": [
 							{
@@ -31,7 +31,7 @@
 				{
 					"name": "Get Individual Vessel",
 					"request": {
-						"url": "https://beta.ais.spire.com/vessels/f63be234-cb32-47cf-9a62-6b0097970ae6",
+						"url": "https://ais.spire.com/vessels/a5b738b4-faf0-4a7e-9a87-1c0ccfb123d2",
 						"method": "GET",
 						"header": [
 							{
@@ -49,10 +49,9 @@
 					"name": "List All Cargo Vessels",
 					"request": {
 						"url": {
-							"raw": "https://beta.ais.spire.com/vessels/?ship_type=cargo",
+							"raw": "https://ais.spire.com/vessels/?ship_type=cargo",
 							"protocol": "https",
 							"host": [
-								"beta",
 								"ais",
 								"spire",
 								"com"
@@ -88,10 +87,9 @@
 					"name": "List All Chinese Cargo Vessels",
 					"request": {
 						"url": {
-							"raw": "https://beta.ais.spire.com/vessels/?ship_type=cargo&flag=CN",
+							"raw": "https://ais.spire.com/vessels/?ship_type=cargo&flag=CN",
 							"protocol": "https",
 							"host": [
-								"beta",
 								"ais",
 								"spire",
 								"com"
@@ -133,10 +131,9 @@
 					"name": "List All Tankers in the North Sea",
 					"request": {
 						"url": {
-							"raw": "https://beta.ais.spire.com/vessels/?ship_type=tanker&geometry_within={\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -5.9765625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              51.31688050404585\n            ]\n          ]\n        ]\n      }",
+							"raw": "https://ais.spire.com/vessels/?ship_type=tanker&geometry_within={\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -5.9765625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              51.31688050404585\n            ]\n          ]\n        ]\n      }",
 							"protocol": "https",
 							"host": [
-								"beta",
 								"ais",
 								"spire",
 								"com"
@@ -178,10 +175,9 @@
 					"name": "Find Vessels by MMSI List",
 					"request": {
 						"url": {
-							"raw": "https://beta.ais.spire.com/vessels?mmsi=352229000,316020345,235114345",
+							"raw": "https://ais.spire.com/vessels?mmsi=219002418,244710824,244780327,457545000",
 							"protocol": "https",
 							"host": [
-								"beta",
 								"ais",
 								"spire",
 								"com"
@@ -192,7 +188,7 @@
 							"query": [
 								{
 									"key": "mmsi",
-									"value": "352229000,316020345,235114345",
+									"value": "219002418,244710824,244780327,457545000",
 									"equals": true,
 									"description": ""
 								}
@@ -216,10 +212,9 @@
 					"name": "Find Vessels by IMO List",
 					"request": {
 						"url": {
-							"raw": "https://beta.ais.spire.com/vessels?imo=9362205,9659866",
+							"raw": "https://ais.spire.com/vessels?imo=9799666,9363273,9180011",
 							"protocol": "https",
 							"host": [
-								"beta",
 								"ais",
 								"spire",
 								"com"
@@ -230,7 +225,7 @@
 							"query": [
 								{
 									"key": "imo",
-									"value": "9362205,9659866",
+									"value": "9799666,9363273,9180011",
 									"equals": true,
 									"description": ""
 								}
@@ -249,6 +244,49 @@
 						"description": "Returns all vessels that have an exact match for at least one of the IMO numbers provided."
 					},
 					"response": []
+				},
+				{
+					"name": "Find Vessels Arriving Between Date/Time Window",
+					"request": {
+						"url": {
+							"raw": "https://ais.spire.com/vessels?arriving_after=2017-08-29T03:00:00Z&arriving_before=2017-08-30T12:00:00Z",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels"
+							],
+							"query": [
+								{
+									"key": "arriving_after",
+									"value": "2017-08-29T03:00:00Z",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "arriving_before",
+									"value": "2017-08-30T12:00:00Z",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Returns all vessels with an ETA greater than the `arriving_after` and ETA less than the `arriving_before` parameter.\n\nQuery can also be used without the `arriving_before` parameter."
+					},
+					"response": []
 				}
 			]
 		},
@@ -257,7 +295,7 @@
 			"description": "",
 			"item": [
 				{
-					"name": "GET Most Recent Deocoded Messages",
+					"name": "Most Recent Deocoded Messages",
 					"request": {
 						"url": {
 							"raw": "https://ais.spire.com/messages?fields=decoded",
@@ -297,7 +335,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Most Recent Messages for list of MMSIs",
+					"name": "Most Recent Messages for list of MMSIs",
 					"request": {
 						"url": {
 							"raw": "https://ais.spire.com/messages?fields=decoded&mmsi=356206000,219657000,244992000",
@@ -343,7 +381,7 @@
 					"response": []
 				},
 				{
-					"name": "GET Most Recent Type 1 Messages for AOI in the North Atlantic",
+					"name": "Most Recent Type 1 Messages for AOI in the North Atlantic",
 					"request": {
 						"url": {
 							"raw": "https://ais.spire.com/messages?msg_type=1&fields=msg_type,position&position={\"type\":\"Polygon\",\"coordinates\":[[[-48.33984375,48.10743118848039],[-71.015625,28.92163128242129],[-68.203125,24.686952411999155],[-52.20703125,15.623036831528264],[-24.43359375,17.308687886770034],[-13.7109375,47.754097979680026],[-48.33984375,48.10743118848039]]]}&limit=1",
@@ -401,10 +439,10 @@
 					"response": []
 				},
 				{
-					"name": "GET All Messages from 2017-07-24",
+					"name": "All Messages from Date/Time Window",
 					"request": {
 						"url": {
-							"raw": "https://ais.spire.com/messages?fields=decoded&received_after=2017-07-24T00:00:00&received_before=2017-07-24T23:59:59&limit=100",
+							"raw": "https://ais.spire.com/messages?fields=decoded&received_after=2017-08-28T00:00:00&received_before=2017-08-28T23:59:59&limit=100",
 							"protocol": "https",
 							"host": [
 								"ais",
@@ -423,13 +461,13 @@
 								},
 								{
 									"key": "received_after",
-									"value": "2017-07-24T00:00:00",
+									"value": "2017-08-28T00:00:00",
 									"equals": true,
 									"description": ""
 								},
 								{
 									"key": "received_before",
-									"value": "2017-07-24T23:59:59",
+									"value": "2017-08-28T23:59:59",
 									"equals": true,
 									"description": ""
 								},
@@ -451,7 +489,7 @@
 							}
 						],
 						"body": {},
-						"description": "First page of 20,000 messages from 2017-07-24."
+						"description": "Returns all messages with a timestamp greater than `received_after` and timestamp less than `received_before`.\nQuery can also be used without the `received_before` parameter.\nTimestamp must be within the past 7 days."
 					},
 					"response": []
 				}
