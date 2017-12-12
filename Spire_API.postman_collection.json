@@ -1,29 +1,42 @@
 {
-	"variables": [],
 	"info": {
 		"name": "Spire API",
-		"_postman_id": "b326ef2d-0f65-0927-d03d-e8f6d0725e96",
+		"_postman_id": "54717314-f5eb-991e-ec76-05317add2677",
 		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "01_Vessels",
-			"description": "",
 			"item": [
 				{
 					"name": "List All Vessels",
 					"request": {
-						"url": "https://ais.spire.com/vessels",
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
+						"header": [],
 						"body": {},
+						"url": {
+							"raw": "https://ais.spire.com/vessels",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels"
+							]
+						},
 						"description": "Returns first page of all Vessels known to Spire."
 					},
 					"response": []
@@ -31,16 +44,32 @@
 				{
 					"name": "Get Individual Vessel",
 					"request": {
-						"url": "https://ais.spire.com/vessels/a5b738b4-faf0-4a7e-9a87-1c0ccfb123d2",
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
+						"header": [],
 						"body": {},
+						"url": {
+							"raw": "https://ais.spire.com/vessels/a5b738b4-faf0-4a7e-9a87-1c0ccfb123d2",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels",
+								"a5b738b4-faf0-4a7e-9a87-1c0ccfb123d2"
+							]
+						},
 						"description": "Returns individual ship details."
 					},
 					"response": []
@@ -48,6 +77,24 @@
 				{
 					"name": "List All Cargo Vessels",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {},
 						"url": {
 							"raw": "https://ais.spire.com/vessels/?ship_type=cargo",
 							"protocol": "https",
@@ -64,21 +111,10 @@
 								{
 									"key": "ship_type",
 									"value": "cargo",
-									"equals": true,
-									"description": ""
+									"equals": true
 								}
-							],
-							"variable": []
+							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
-						"body": {},
 						"description": "Returns all Vessels with the ship type Cargo."
 					},
 					"response": []
@@ -86,6 +122,24 @@
 				{
 					"name": "List All Chinese Cargo Vessels",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {},
 						"url": {
 							"raw": "https://ais.spire.com/vessels/?ship_type=cargo&flag=CN",
 							"protocol": "https",
@@ -102,27 +156,15 @@
 								{
 									"key": "ship_type",
 									"value": "cargo",
-									"equals": true,
-									"description": ""
+									"equals": true
 								},
 								{
 									"key": "flag",
 									"value": "CN",
-									"equals": true,
-									"description": ""
+									"equals": true
 								}
-							],
-							"variable": []
+							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
-						"body": {},
 						"description": "Returns all Vessels with the ship type Cargo and with the flag country of China."
 					},
 					"response": []
@@ -130,8 +172,26 @@
 				{
 					"name": "List All Tankers in the North Sea",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {},
 						"url": {
-							"raw": "https://ais.spire.com/vessels/?ship_type=tanker&geometry_within={\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -5.9765625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              51.31688050404585\n            ]\n          ]\n        ]\n      }",
+							"raw": "https://ais.spire.com/vessels/?ship_type=tanker&last_known_or_predicted_position_within={\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -5.9765625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              51.31688050404585\n            ]\n          ]\n        ]\n      }",
 							"protocol": "https",
 							"host": [
 								"ais",
@@ -146,34 +206,198 @@
 								{
 									"key": "ship_type",
 									"value": "tanker",
-									"equals": true,
-									"description": ""
+									"equals": true
 								},
 								{
-									"key": "geometry_within",
+									"key": "last_known_or_predicted_position_within",
 									"value": "{\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -5.9765625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              51.31688050404585\n            ]\n          ]\n        ]\n      }",
+									"equals": true
+								},
+								{
+									"key": "",
+									"value": "",
 									"equals": true,
-									"description": ""
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"equals": true,
+									"disabled": true
 								}
-							],
-							"variable": []
+							]
+						},
+						"description": "Returns all vessels with the ship type Tanker and within a given polygon geometry of the North Sea."
+					},
+					"response": []
+				},
+				{
+					"name": "List All Vessels Last Known in the Indian Ocean",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
+								"value": "Bearer {{token}}"
 							}
 						],
 						"body": {},
-						"description": "Returns all vessels with the ship type Tanker and within a given polygon geometry of the North Sea."
+						"url": {
+							"raw": "https://ais.spire.com/vessels/?last_known_position_within={\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              57.83203125,\n              -37.43997405227057\n            ],\n            [\n              105.1171875,\n              -37.43997405227057\n            ],\n            [\n              105.1171875,\n              -8.928487062665504\n            ],\n            [\n              57.83203125,\n              -8.928487062665504\n            ],\n            [\n              57.83203125,\n              -37.43997405227057\n            ]\n          ]\n        ]\n      }",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels",
+								""
+							],
+							"query": [
+								{
+									"key": "last_known_position_within",
+									"value": "{\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              57.83203125,\n              -37.43997405227057\n            ],\n            [\n              105.1171875,\n              -37.43997405227057\n            ],\n            [\n              105.1171875,\n              -8.928487062665504\n            ],\n            [\n              57.83203125,\n              -8.928487062665504\n            ],\n            [\n              57.83203125,\n              -37.43997405227057\n            ]\n          ]\n        ]\n      }",
+									"equals": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"equals": true,
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all vessels with a last known position within a given polygon geometry of the Indian Ocean."
+					},
+					"response": []
+				},
+				{
+					"name": "List All Vessels Predicted or Last Known in the Indian Ocean",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://ais.spire.com/vessels/?last_known_or_predicted_position_within={\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              57.83203125,\n              -37.43997405227057\n            ],\n            [\n              105.1171875,\n              -37.43997405227057\n            ],\n            [\n              105.1171875,\n              -8.928487062665504\n            ],\n            [\n              57.83203125,\n              -8.928487062665504\n            ],\n            [\n              57.83203125,\n              -37.43997405227057\n            ]\n          ]\n        ]\n      }",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels",
+								""
+							],
+							"query": [
+								{
+									"key": "last_known_or_predicted_position_within",
+									"value": "{\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              57.83203125,\n              -37.43997405227057\n            ],\n            [\n              105.1171875,\n              -37.43997405227057\n            ],\n            [\n              105.1171875,\n              -8.928487062665504\n            ],\n            [\n              57.83203125,\n              -8.928487062665504\n            ],\n            [\n              57.83203125,\n              -37.43997405227057\n            ]\n          ]\n        ]\n      }",
+									"equals": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"equals": true,
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all vessels with a predicted OR last known position within a given polygon geometry of the Indian Ocean."
+					},
+					"response": []
+				},
+				{
+					"name": "List All Vessels Updated After Given Date",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://ais.spire.com/vessels/?updated_after=2017-12-06T00:00:00",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels",
+								""
+							],
+							"query": [
+								{
+									"key": "updated_after",
+									"value": "2017-12-06T00:00:00",
+									"equals": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"equals": true,
+									"disabled": true
+								}
+							]
+						},
+						"description": "Returns all vessels with an `updated_at` date after the provided date, meaning they have new static or last known position information since that date/time."
 					},
 					"response": []
 				},
 				{
 					"name": "Find Vessels by MMSI List",
 					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://ais.spire.com/vessels?mmsi=219002418,244710824,244780327,457545000",
 							"protocol": "https",
@@ -189,21 +413,10 @@
 								{
 									"key": "mmsi",
 									"value": "219002418,244710824,244780327,457545000",
-									"equals": true,
-									"description": ""
+									"equals": true
 								}
-							],
-							"variable": []
+							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
-						"body": {},
 						"description": "Returns all vessels that have an exact match for at least one of the MMSIs provided."
 					},
 					"response": []
@@ -211,6 +424,24 @@
 				{
 					"name": "Find Vessels by IMO List",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {},
 						"url": {
 							"raw": "https://ais.spire.com/vessels?imo=9799666,9363273,9180011",
 							"protocol": "https",
@@ -226,21 +457,10 @@
 								{
 									"key": "imo",
 									"value": "9799666,9363273,9180011",
-									"equals": true,
-									"description": ""
+									"equals": true
 								}
-							],
-							"variable": []
+							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
-						"body": {},
 						"description": "Returns all vessels that have an exact match for at least one of the IMO numbers provided."
 					},
 					"response": []
@@ -248,8 +468,26 @@
 				{
 					"name": "Find Vessels Arriving Between Date/Time Window",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {},
 						"url": {
-							"raw": "https://ais.spire.com/vessels?arriving_after=2017-08-29T03:00:00Z&arriving_before=2017-08-30T12:00:00Z",
+							"raw": "https://ais.spire.com/vessels?arriving_after=2017-12-08T03:00:00Z&arriving_before=2017-12-08T12:00:00Z",
 							"protocol": "https",
 							"host": [
 								"ais",
@@ -262,28 +500,16 @@
 							"query": [
 								{
 									"key": "arriving_after",
-									"value": "2017-08-29T03:00:00Z",
-									"equals": true,
-									"description": ""
+									"value": "2017-12-08T03:00:00Z",
+									"equals": true
 								},
 								{
 									"key": "arriving_before",
-									"value": "2017-08-30T12:00:00Z",
-									"equals": true,
-									"description": ""
+									"value": "2017-12-08T12:00:00Z",
+									"equals": true
 								}
-							],
-							"variable": []
+							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
-						"body": {},
 						"description": "Returns all vessels with an ETA greater than the `arriving_after` and ETA less than the `arriving_before` parameter.\n\nQuery can also be used without the `arriving_before` parameter."
 					},
 					"response": []
@@ -292,11 +518,21 @@
 		},
 		{
 			"name": "02_Messages",
-			"description": "",
 			"item": [
 				{
 					"name": "Most Recent Decoded Messages",
 					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://ais.spire.com/messages?fields=decoded",
 							"protocol": "https",
@@ -312,23 +548,9 @@
 								{
 									"key": "fields",
 									"value": "decoded",
-									"equals": true,
-									"description": ""
+									"equals": true
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+							]
 						},
 						"description": "First page of 20,000 results from the previous 3 hours is returned."
 					},
@@ -337,6 +559,27 @@
 				{
 					"name": "Most Recent Messages for list of MMSIs",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://ais.spire.com/messages?fields=decoded&mmsi=356206000,219657000,244992000",
 							"protocol": "https",
@@ -352,29 +595,14 @@
 								{
 									"key": "fields",
 									"value": "decoded",
-									"equals": true,
-									"description": ""
+									"equals": true
 								},
 								{
 									"key": "mmsi",
 									"value": "356206000,219657000,244992000",
-									"equals": true,
-									"description": ""
+									"equals": true
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+							]
 						},
 						"description": "First page of results from the last 3 hours that includes these MMSIs is returned."
 					},
@@ -383,6 +611,27 @@
 				{
 					"name": "Most Recent Type 1 Messages for AOI in the North Atlantic",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://ais.spire.com/messages?msg_type=1&fields=msg_type,position&position={\"type\":\"Polygon\",\"coordinates\":[[[-48.33984375,48.10743118848039],[-71.015625,28.92163128242129],[-68.203125,24.686952411999155],[-52.20703125,15.623036831528264],[-24.43359375,17.308687886770034],[-13.7109375,47.754097979680026],[-48.33984375,48.10743118848039]]]}&limit=1",
 							"protocol": "https",
@@ -398,41 +647,24 @@
 								{
 									"key": "msg_type",
 									"value": "1",
-									"equals": true,
-									"description": ""
+									"equals": true
 								},
 								{
 									"key": "fields",
 									"value": "msg_type,position",
-									"equals": true,
-									"description": ""
+									"equals": true
 								},
 								{
 									"key": "position",
 									"value": "{\"type\":\"Polygon\",\"coordinates\":[[[-48.33984375,48.10743118848039],[-71.015625,28.92163128242129],[-68.203125,24.686952411999155],[-52.20703125,15.623036831528264],[-24.43359375,17.308687886770034],[-13.7109375,47.754097979680026],[-48.33984375,48.10743118848039]]]}",
-									"equals": true,
-									"description": ""
+									"equals": true
 								},
 								{
 									"key": "limit",
 									"value": "1",
-									"equals": true,
-									"description": ""
+									"equals": true
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+							]
 						},
 						"description": "First page of type 1 messages from the last 3 hours for the geometry provided is returned."
 					},
@@ -441,8 +673,26 @@
 				{
 					"name": "All Messages from Date/Time Window",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {},
 						"url": {
-							"raw": "https://ais.spire.com/messages?fields=decoded&received_after=2017-08-28T00:00:00&received_before=2017-08-28T23:59:59&limit=100",
+							"raw": "https://ais.spire.com/messages?fields=decoded&received_after=2017-12-08T00:00:00&received_before=2017-12-08T23:59:59&limit=100",
 							"protocol": "https",
 							"host": [
 								"ais",
@@ -456,39 +706,25 @@
 								{
 									"key": "fields",
 									"value": "decoded",
-									"equals": true,
-									"description": ""
+									"equals": true
 								},
 								{
 									"key": "received_after",
-									"value": "2017-08-28T00:00:00",
-									"equals": true,
-									"description": ""
+									"value": "2017-12-08T00:00:00",
+									"equals": true
 								},
 								{
 									"key": "received_before",
-									"value": "2017-08-28T23:59:59",
-									"equals": true,
-									"description": ""
+									"value": "2017-12-08T23:59:59",
+									"equals": true
 								},
 								{
 									"key": "limit",
 									"value": "100",
-									"equals": true,
-									"description": ""
+									"equals": true
 								}
-							],
-							"variable": []
+							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							}
-						],
-						"body": {},
 						"description": "Returns all messages with a timestamp greater than `received_after` and timestamp less than `received_before`.\nQuery can also be used without the `received_before` parameter.\nTimestamp must be within the past 7 days."
 					},
 					"response": []
