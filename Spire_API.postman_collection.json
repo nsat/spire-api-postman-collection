@@ -1,6 +1,6 @@
 {
     "info": {
-        "name": "Spire API",
+        "name": "Test Spire API",
         "_postman_id": "54717314-f5eb-991e-ec76-05317add2677",
         "description": "",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -894,7 +894,7 @@
                         ],
                         "body": {},
                         "url": {
-                            "raw": "https://ais.spire.com/vessels/predictions?ship_type=cargo&last_known_or_predicted_position_within={\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -5.9765625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              51.31688050404585\n            ]\n          ]\n        ]\n      }",
+                            "raw": "https://ais.spire.com/vessels/predictions?ship_type=cargo&last_known_or_predicted_position_within={\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              102.2385,\n              -3.2287\n            ],\n            [\n              122.1513,\n              -3.2287\n            ],\n            [\n              122.1513,\n              25.5673\n            ],\n            [\n              102.2385,\n              25.5673\n            ],\n            [\n              102.2385,\n              -3.2287\n            ]\n          ]\n        ]\n      }",
                             "protocol": "https",
                             "host": [
                                 "ais",
@@ -913,7 +913,7 @@
                                 },
                                 {
                                     "key": "last_known_or_predicted_position_within",
-                                    "value": "{\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -5.9765625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              51.31688050404585\n            ]\n          ]\n        ]\n      }",
+                                    "value": "{\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              102.2385,\n              -3.2287\n            ],\n            [\n              122.1513,\n              -3.2287\n            ],\n            [\n              122.1513,\n              25.5673\n            ],\n            [\n              102.2385,\n              25.5673\n            ],\n            [\n              102.2385,\n              -3.2287\n            ]\n          ]\n        ]\n      }",
                                     "equals": true
                                 },
                                 {
@@ -981,7 +981,7 @@
                     "response": []
                 },
                 {
-                    "name": "Find Vessels by IMO List",
+                    "name": "List Predicted Future Positions by IMO List",
                     "request": {
                         "auth": {
                             "type": "bearer",
@@ -1002,7 +1002,7 @@
                         ],
                         "body": {},
                         "url": {
-                            "raw": "https://ais.spire.com/vessels/predictions?imo=9799666,9363273,9180011",
+                            "raw": "https://ais.spire.com/vessels/predictions?imo=9383481,9194048,8230170",
                             "protocol": "https",
                             "host": [
                                 "ais",
@@ -1016,12 +1016,12 @@
                             "query": [
                                 {
                                     "key": "imo",
-                                    "value": "9799666,9363273,9180011",
+                                    "value": "9383481,9194048,8230170",
                                     "equals": true
                                 }
                             ]
                         },
-                        "description": "Returns all vessels that have an exact match for at least one of the IMO numbers provided."
+                        "description": "Returns predicted future poisitions for vessels that have an exact match for at least one of the IMO numbers provided."
                     },
                     "response": []
                 },
