@@ -523,95 +523,6 @@
                         "description": "Returns all vessels with an ETA greater than the `arriving_after` and ETA less than the `arriving_before` parameter.\n\nQuery can also be used without the `arriving_before` parameter."
                     },
                     "response": []
-                },
-                {
-                    "name": "List Predicted Future Positions for All Class B Vessels",
-                    "request": {
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{token}}"
-                            }
-                        ],
-                        "body": {},
-                        "url": {
-                            "raw": "https://ais.spire.com/vessels/predictions?class=B",
-                            "protocol": "https",
-                            "host": [
-                                "ais",
-                                "spire",
-                                "com"
-                            ],
-                            "path": [
-                                "vessels"
-                            ],
-                            "query": [
-                                {
-                                    "key": "class",
-                                    "value": "B",
-                                    "equals": true
-
-                                }
-                            ]
-                        },
-                        "description": "Returns predicted positions up to 8 hours in the future for all Class B vessels."
-                    },
-                    "response": []
-                },
-                {
-                    "name": "List Predicted Future Positions by MMSI List",
-                    "request": {
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{token}}"
-                            }
-                        ],
-                        "body": {},
-                        "url": {
-                            "raw": "https://ais.spire.com/vessels/predictions?mmsi=219002418,244780327",
-                            "protocol": "https",
-                            "host": [
-                                "ais",
-                                "spire",
-                                "com"
-                            ],
-                            "path": [
-                                "vessels"
-                            ],
-                            "query": [
-                                {
-                                    "key": "mmsi",
-                                    "value": "219002418,244780327",
-                                    "equals": true
-                                }
-                            ]
-                        },
-                        "description": "Returns predicted positions up to 8 hours in the future for vessels that have an exact match for at least one of the MMSIs provided."
-                    },
-                    "response": []
                 }
             ]
         },
@@ -825,6 +736,337 @@
                             ]
                         },
                         "description": "Returns all messages with a timestamp greater than `received_after` and timestamp less than `received_before`.\nQuery can also be used without the `received_before` parameter.\nTimestamp must be within the past 7 days."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "03_PredictAI",
+            "item": [
+                {
+                    "name": "List All Vessels w/ Predicted Future Positions",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "body": {},
+                        "url": {
+                            "raw": "https://ais.spire.com/vessels/predictions",
+                            "protocol": "https",
+                            "host": [
+                                "ais",
+                                "spire",
+                                "com"
+                            ],
+                            "path": [
+                                "vessels",
+                                "predictions"
+                            ]
+                        },
+                        "description": "Returns first page of all Vessels known to Spire and their predicted future positions."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List All Fishing Vessels w/ Predicted Future Positions",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {},
+                        "url": {
+                            "raw": "https://ais.spire.com/vessels/predictions/?ship_type=fishing",
+                            "protocol": "https",
+                            "host": [
+                                "ais",
+                                "spire",
+                                "com"
+                            ],
+                            "path": [
+                                "vessels",
+                                "predictions"
+                            ],
+                            "query": [
+                                {
+                                    "key": "ship_type",
+                                    "value": "fishing",
+                                    "equals": true
+                                }
+                            ]
+                        },
+                        "description": "Returns first page of all Vessels with the ship type Fishing and their predicted future positions."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List All US Tanker Vessels w/ Predicted Future Positions",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {},
+                        "url": {
+                            "raw": "https://ais.spire.com/vessels/predictions?ship_type=tanker&flag=US",
+                            "protocol": "https",
+                            "host": [
+                                "ais",
+                                "spire",
+                                "com"
+                            ],
+                            "path": [
+                                "vessels",
+                                "predictions"
+                            ],
+                            "query": [
+                                {
+                                    "key": "ship_type",
+                                    "value": "tanker",
+                                    "equals": true
+                                },
+                                {
+                                    "key": "flag",
+                                    "value": "US",
+                                    "equals": true
+                                }
+                            ]
+                        },
+                        "description": "Returns all Vessels with the ship type Tanker and the flag country of the United States, along with their future predicted positions."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List All Cargo Vessels Predicted or Last Known in the South China Sea w/ Predicted Future Positions",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {},
+                        "url": {
+                            "raw": "https://ais.spire.com/vessels/predictions?ship_type=cargo&last_known_or_predicted_position_within={\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -5.9765625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              51.31688050404585\n            ]\n          ]\n        ]\n      }",
+                            "protocol": "https",
+                            "host": [
+                                "ais",
+                                "spire",
+                                "com"
+                            ],
+                            "path": [
+                                "vessels",
+                                "predictions"
+                            ],
+                            "query": [
+                                {
+                                    "key": "ship_type",
+                                    "value": "cargo",
+                                    "equals": true
+                                },
+                                {
+                                    "key": "last_known_or_predicted_position_within",
+                                    "value": "{\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -5.9765625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              51.31688050404585\n            ],\n            [\n              12.12890625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              61.39671887310411\n            ],\n            [\n              -5.9765625,\n              51.31688050404585\n            ]\n          ]\n        ]\n      }",
+                                    "equals": true
+                                },
+                                {
+                                    "key": "",
+                                    "value": "",
+                                    "equals": true,
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "",
+                                    "value": "",
+                                    "equals": true,
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "description": "Returns all vessels with the ship type Cargo and last known or currently predicted within a given polygon geometry of the South China Sea, along with their future predicted positions."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Predicted Future Positions for All Class B Vessels",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {},
+                        "url": {
+                            "raw": "https://ais.spire.com/vessels/predictions?class=B",
+                            "protocol": "https",
+                            "host": [
+                                "ais",
+                                "spire",
+                                "com"
+                            ],
+                            "path": [
+                                "vessels",
+                                "predictions"
+                            ],
+                            "query": [
+                                {
+                                    "key": "class",
+                                    "value": "B",
+                                    "equals": true
+
+                                }
+                            ]
+                        },
+                        "description": "Returns first page of predicted future positions for Class B vessels."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Find Vessels by IMO List",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {},
+                        "url": {
+                            "raw": "https://ais.spire.com/vessels/predictions?imo=9799666,9363273,9180011",
+                            "protocol": "https",
+                            "host": [
+                                "ais",
+                                "spire",
+                                "com"
+                            ],
+                            "path": [
+                                "vessels",
+                                "predictions"
+                            ],
+                            "query": [
+                                {
+                                    "key": "imo",
+                                    "value": "9799666,9363273,9180011",
+                                    "equals": true
+                                }
+                            ]
+                        },
+                        "description": "Returns all vessels that have an exact match for at least one of the IMO numbers provided."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Predicted Future Positions by MMSI List",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {},
+                        "url": {
+                            "raw": "https://ais.spire.com/vessels/predictions?mmsi=219002418,244780327",
+                            "protocol": "https",
+                            "host": [
+                                "ais",
+                                "spire",
+                                "com"
+                            ],
+                            "path": [
+                                "vessels",
+                                "predictions"
+                            ],
+                            "query": [
+                                {
+                                    "key": "mmsi",
+                                    "value": "219002418,244780327",
+                                    "equals": true
+                                }
+                            ]
+                        },
+                        "description": "Returns predicted future positions for vessels that have an exact match for at least one of the MMSIs provided."
                     },
                     "response": []
                 }
