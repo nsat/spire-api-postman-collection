@@ -773,7 +773,8 @@
                                 "key": "Authorization",
                                 "value": "Bearer {{token}}"
                             }
-                        ],                        "body": {},
+                        ],
+                        "body": {},
                         "url": {
                             "raw": "https://ais.spire.com/vessels/predictions",
                             "protocol": "https",
