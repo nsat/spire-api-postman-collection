@@ -23,7 +23,12 @@
                             ]
                         },
                         "method": "GET",
-                        "header": [],
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
                         "body": {},
                         "url": {
                             "raw": "https://ais.spire.com/vessels",
@@ -55,7 +60,12 @@
                             ]
                         },
                         "method": "GET",
-                        "header": [],
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
                         "body": {},
                         "url": {
                             "raw": "https://ais.spire.com/vessels/a5b738b4-faf0-4a7e-9a87-1c0ccfb123d2",
@@ -758,7 +768,12 @@
                             ]
                         },
                         "method": "GET",
-                        "header": [],
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
                         "body": {},
                         "url": {
                             "raw": "https://ais.spire.com/vessels/predictions",
