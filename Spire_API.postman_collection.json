@@ -1036,7 +1036,7 @@
                                 }
                             ]
                         },
-                        "description": "Returns predicted future poisitions for vessels that have an exact match for at least one of the IMO numbers provided."
+                        "description": "Returns predicted future positions for vessels that have an exact match for at least one of the IMO numbers provided."
                     },
                     "response": []
                 }
