@@ -793,51 +793,6 @@
                     "response": []
                 },
                 {
-                    "name": "List All Fishing Vessels w/ Predicted Future Positions",
-                    "request": {
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{token}}"
-                            }
-                        ],
-                        "body": {},
-                        "url": {
-                            "raw": "https://ais.spire.com/vessels/predictions/?ship_type=fishing",
-                            "protocol": "https",
-                            "host": [
-                                "ais",
-                                "spire",
-                                "com"
-                            ],
-                            "path": [
-                                "vessels",
-                                "predictions"
-                            ],
-                            "query": [
-                                {
-                                    "key": "ship_type",
-                                    "value": "fishing",
-                                    "equals": true
-                                }
-                            ]
-                        },
-                        "description": "Returns first page of all Vessels with the ship type Fishing and their predicted future positions."
-                    },
-                    "response": []
-                },
-                {
                     "name": "List All US Tanker Vessels w/ Predicted Future Positions",
                     "request": {
                         "auth": {
@@ -996,51 +951,6 @@
                     "response": []
                 },
                 {
-                    "name": "List Predicted Future Positions by IMO List",
-                    "request": {
-                        "auth": {
-                            "type": "bearer",
-                            "bearer": [
-                                {
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{token}}"
-                            }
-                        ],
-                        "body": {},
-                        "url": {
-                            "raw": "https://ais.spire.com/vessels/predictions?imo=9383481,9194048,8230170",
-                            "protocol": "https",
-                            "host": [
-                                "ais",
-                                "spire",
-                                "com"
-                            ],
-                            "path": [
-                                "vessels",
-                                "predictions"
-                            ],
-                            "query": [
-                                {
-                                    "key": "imo",
-                                    "value": "9383481,9194048,8230170",
-                                    "equals": true
-                                }
-                            ]
-                        },
-                        "description": "Returns predicted future poisitions for vessels that have an exact match for at least one of the IMO numbers provided."
-                    },
-                    "response": []
-                },
-                {
                     "name": "List Predicted Future Positions by MMSI List",
                     "request": {
                         "auth": {
@@ -1082,6 +992,51 @@
                             ]
                         },
                         "description": "Returns predicted future positions for vessels that have an exact match for at least one of the MMSIs provided."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Predicted Future Positions by IMO List",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {},
+                        "url": {
+                            "raw": "https://ais.spire.com/vessels/predictions?imo=9799666,9363273,9180011",
+                            "protocol": "https",
+                            "host": [
+                                "ais",
+                                "spire",
+                                "com"
+                            ],
+                            "path": [
+                                "vessels",
+                                "predictions"
+                            ],
+                            "query": [
+                                {
+                                    "key": "imo",
+                                    "value": "9799666,9363273,9180011",
+                                    "equals": true
+                                }
+                            ]
+                        },
+                        "description": "Returns predicted future poisitions for vessels that have an exact match for at least one of the IMO numbers provided."
                     },
                     "response": []
                 }
