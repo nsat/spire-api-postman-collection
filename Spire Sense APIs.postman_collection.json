@@ -1,0 +1,568 @@
+{
+	"info": {
+		"_postman_id": "490c5fa9-dc0c-4214-a0c2-de9782078a43",
+		"name": "Spire Sense APIs",
+		"description": "Sample requests for Q88 using both Vessels and Messages API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Vessels",
+			"item": [
+				{
+					"name": "Get All Tanker Vessels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/vessels?ship_type=tanker&limit=1000",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels"
+							],
+							"query": [
+								{
+									"key": "ship_type",
+									"value": "tanker",
+									"description": "Filtering the results to only vessels identifying as tankers"
+								},
+								{
+									"key": "limit",
+									"value": "1000",
+									"description": "Raising the limit of the objects in response to a maximum of 1000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Cargo Vessels Updated After",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/vessels?ship_type=cargo&updated_after=2020-01-01T00:00:00&sort=-updated_at",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels"
+							],
+							"query": [
+								{
+									"key": "ship_type",
+									"value": "cargo",
+									"description": "Filtering to vessels identifying as cargo ships"
+								},
+								{
+									"key": "updated_after",
+									"value": "2020-01-01T00:00:00",
+									"description": "Filter for vessels updated in 2020"
+								},
+								{
+									"key": "sort",
+									"value": "-updated_at",
+									"description": "Sort for updated_at descending"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Locations for Specific Vessels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/vessels?imo=9336737,9236420,9414632&sort=-timestamp",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels"
+							],
+							"query": [
+								{
+									"key": "imo",
+									"value": "9336737,9236420,9414632",
+									"description": "Getting locations for three specific ships by IMO number"
+								},
+								{
+									"key": "sort",
+									"value": "-timestamp",
+									"description": "Sort for most recently created vessels in the database descending"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vessels Seen in San Francisco",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/vessels?postion={ \"type\":\"Polygon\", \"coordinates\":[ [ [ -123.39019775390624, 37.1800139389017 ], [ -121.28906250000001, 37.1800139389017 ], [ -121.28906250000001, 38.371808917147554 ], [ -123.39019775390624, 38.371808917147554 ], [ -123.39019775390624, 37.1800139389017 ] ] ] }&sort=-timestamp",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels"
+							],
+							"query": [
+								{
+									"key": "postion",
+									"value": "{ \"type\":\"Polygon\", \"coordinates\":[ [ [ -123.39019775390624, 37.1800139389017 ], [ -121.28906250000001, 37.1800139389017 ], [ -121.28906250000001, 38.371808917147554 ], [ -123.39019775390624, 38.371808917147554 ], [ -123.39019775390624, 37.1800139389017 ] ] ] }",
+									"description": "GeoJSON "
+								},
+								{
+									"key": "sort",
+									"value": "-timestamp",
+									"description": "Sort for most recently created vessels in the database descending"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Possible Parameters",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/vessels?imo=9336737&call_sign=C6AS3&name=methane spirit&mmsi=311000135&ship_type=tanker&flag=BS&updated_after=2020-01-01T00:00:00&updated_before=2030-01-01T00:00:00&sort=-timestamp",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"vessels"
+							],
+							"query": [
+								{
+									"key": "imo",
+									"value": "9336737",
+									"description": "Vessel unique International Maritime Organization number"
+								},
+								{
+									"key": "call_sign",
+									"value": "C6AS3",
+									"description": "Vessel call sign"
+								},
+								{
+									"key": "name",
+									"value": "methane spirit",
+									"description": "Vessel name search (cannot be a list of names)"
+								},
+								{
+									"key": "mmsi",
+									"value": "311000135",
+									"description": "Vessel Maritime Mobile Service Identity number"
+								},
+								{
+									"key": "ship_type",
+									"value": "tanker",
+									"description": "Category of vessel"
+								},
+								{
+									"key": "flag",
+									"value": "BS",
+									"description": "Vessel country flag using 2-letter country codes (derived from MMSI)"
+								},
+								{
+									"key": "updated_after",
+									"value": "2020-01-01T00:00:00",
+									"description": "Returns all vessels with an updated_at greater than or equal to the time specified"
+								},
+								{
+									"key": "updated_before",
+									"value": "2030-01-01T00:00:00",
+									"description": "Returns all vessels with an updated_at less than or equal to the time specified"
+								},
+								{
+									"key": "arriving_after",
+									"value": "2020-01-91T00:00:00",
+									"description": "Returns all vessels with an eta greater than or equal to the time specified",
+									"disabled": true
+								},
+								{
+									"key": "arriving_before",
+									"value": "2030-01-01T00:00:00",
+									"description": "Returns all vessels with an eta less than or equal to the time specified",
+									"disabled": true
+								},
+								{
+									"key": "last_known_position",
+									"value": "{ \"type\":\"Polygon\", \"coordinates\":[ [ [ -123.39019775390624, 37.1800139389017 ], [ -121.28906250000001, 37.1800139389017 ], [ -121.28906250000001, 38.371808917147554 ], [ -123.39019775390624, 38.371808917147554 ], [ -123.39019775390624, 37.1800139389017 ] ] ] }",
+									"description": "Returns all vessels with a last_known_position point within provided GeoJSON polygon",
+									"disabled": true
+								},
+								{
+									"key": "predicted_position_with",
+									"value": "{ \"type\":\"Polygon\", \"coordinates\":[ [ [ -123.39019775390624, 37.1800139389017 ], [ -121.28906250000001, 37.1800139389017 ], [ -121.28906250000001, 38.371808917147554 ], [ -123.39019775390624, 38.371808917147554 ], [ -123.39019775390624, 37.1800139389017 ] ] ] }",
+									"description": "Returns all vessels with a predicted_position point within provided GeoJSON polygon",
+									"disabled": true
+								},
+								{
+									"key": "last_known_or_predicted_position_within",
+									"value": "{ \"type\":\"Polygon\", \"coordinates\":[ [ [ -123.39019775390624, 37.1800139389017 ], [ -121.28906250000001, 37.1800139389017 ], [ -121.28906250000001, 38.371808917147554 ], [ -123.39019775390624, 38.371808917147554 ], [ -123.39019775390624, 37.1800139389017 ] ] ] }",
+									"description": "Returns all vessels with a last_known_position or last_known_position point within provided GeoJSON polygon\t",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-timestamp",
+									"description": "Sort for most recently created vessels in the database descending"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "Get All Static Messages Received After",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/messages?msg_description=static&received_after=2020-02-28T00:00:00&fields=decoded",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"messages"
+							],
+							"query": [
+								{
+									"key": "msg_description",
+									"value": "static"
+								},
+								{
+									"key": "received_after",
+									"value": "2020-02-28T00:00:00"
+								},
+								{
+									"key": "fields",
+									"value": "decoded"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Position Messages for a Ship List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/messages?msg_description=position&received_after=2019-08-26T00:00:00&mmsi=224941000,311000135,224072000&fields=decoded",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"messages"
+							],
+							"query": [
+								{
+									"key": "msg_description",
+									"value": "position",
+									"description": "Position AIS Messages (1,2,3,18,19,27)"
+								},
+								{
+									"key": "received_after",
+									"value": "2019-08-26T00:00:00",
+									"description": "Filter from when we received the message"
+								},
+								{
+									"key": "mmsi",
+									"value": "224941000,311000135,224072000",
+									"description": "List of MMSIs for specific ships"
+								},
+								{
+									"key": "fields",
+									"value": "decoded",
+									"description": "Decode the NMEA strings"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Position Messages in SF",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/messages?fields=decoded&position={ \"type\":\"Polygon\", \"coordinates\":[ [ [ -123.39019775390624, 37.1800139389017 ], [ -121.28906250000001, 37.1800139389017 ], [ -121.28906250000001, 38.371808917147554 ], [ -123.39019775390624, 38.371808917147554 ], [ -123.39019775390624, 37.1800139389017 ] ] ] }",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"messages"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "decoded",
+									"description": "Decode the NMEA strings"
+								},
+								{
+									"key": "position",
+									"value": "{ \"type\":\"Polygon\", \"coordinates\":[ [ [ -123.39019775390624, 37.1800139389017 ], [ -121.28906250000001, 37.1800139389017 ], [ -121.28906250000001, 38.371808917147554 ], [ -123.39019775390624, 38.371808917147554 ], [ -123.39019775390624, 37.1800139389017 ] ] ] }",
+									"description": "Geojson position parameter"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Static Messages for a Ship List Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/messages?msg_description=static&received_after=2019-08-26T00:00:00&mmsi=224941000,311000135,224072000&fields=decoded",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"messages"
+							],
+							"query": [
+								{
+									"key": "msg_description",
+									"value": "static",
+									"description": "Static AIS Messages (5,24)"
+								},
+								{
+									"key": "received_after",
+									"value": "2019-08-26T00:00:00",
+									"description": "Filter from when we received the message"
+								},
+								{
+									"key": "mmsi",
+									"value": "224941000,311000135,224072000",
+									"description": "List of MMSIs for specific ships"
+								},
+								{
+									"key": "fields",
+									"value": "decoded",
+									"description": "Decode the NMEA strings"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Possible Messages Parameters",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{legacy_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ais.spire.com/messages?msg_description=static&received_after=2019-08-26T00:00:00&received_before=2030-01-01T00:00:00&fields=decoded&cleansed=false&collection_type=satellite&msg_type=5",
+							"protocol": "https",
+							"host": [
+								"ais",
+								"spire",
+								"com"
+							],
+							"path": [
+								"messages"
+							],
+							"query": [
+								{
+									"key": "msg_description",
+									"value": "static",
+									"description": "Static AIS Messages (5,24)"
+								},
+								{
+									"key": "received_after",
+									"value": "2019-08-26T00:00:00",
+									"description": "Filter from when we received the message"
+								},
+								{
+									"key": "received_before",
+									"value": "2030-01-01T00:00:00"
+								},
+								{
+									"key": "mmsi",
+									"value": "224941000,311000135,224072000",
+									"description": "List of MMSIs for specific ships",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "decoded",
+									"description": "Decode the NMEA strings"
+								},
+								{
+									"key": "cleansed",
+									"value": "false",
+									"description": "Filter for returning only messages with valid fields"
+								},
+								{
+									"key": "collection_type",
+									"value": "satellite",
+									"description": "How the AIS was collected (satellite, terrestrial, dynamic)"
+								},
+								{
+									"key": "msg_type",
+									"value": "5",
+									"description": "AIS Message Type"
+								},
+								{
+									"key": "position",
+									"value": "{ \"type\":\"Polygon\", \"coordinates\":[ [ [ -123.39019775390624, 37.1800139389017 ], [ -121.28906250000001, 37.1800139389017 ], [ -121.28906250000001, 38.371808917147554 ], [ -123.39019775390624, 38.371808917147554 ], [ -123.39019775390624, 37.1800139389017 ] ] ] }",
+									"description": "Position messages inside a geoJSON AOI",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
